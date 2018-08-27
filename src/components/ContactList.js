@@ -6,7 +6,7 @@ function ContactList(props) {
     <div className="contacts">
         <h3 id="contact">Contact &amp; Profiles</h3>
         <ul className="links"> 
-            {props.contact.map(c => <Contact link={c.link} enTitle={c.enTitle} />)}
+            {props.contact.map(c => <Contact key={c.id} link={c.link} enTitle={c.enTitle} />)}
         </ul>
     </div>);
 }

@@ -46,6 +46,12 @@ class App extends Component {
         this.setState(newState);
       }).catch(error => console.log(error));
 
+      axios
+        .get("http://localhost:8080/images")
+        .then(response => { 
+          document.getElementById('root').style.background = "#D9D6CA url('"+ response.data.path +"') no-repeat center center fixed";
+        }).catch(error => console.log(error));
+
   }
 
   render() {

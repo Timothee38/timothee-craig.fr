@@ -14,9 +14,11 @@ class App extends Component {
     projects: []
   };
 
+  baseURL = "http://localhost:8080/"
+
   componentDidMount() {
     axios
-      .get("http://localhost:8080/frontpage")
+      .get(this.baseURL + "frontpage")
       .then(response => {
         // create a new "State" object without mutating 
         // the original State object. 
@@ -27,7 +29,7 @@ class App extends Component {
         this.setState(newState);}).catch(error => console.log(error));
     
     axios
-      .get("http://localhost:8080/contact")
+      .get(this.baseURL + "contact")
       .then(response => { 
         const newState = Object.assign({}, this.state, {
           contact: response.data
@@ -37,7 +39,7 @@ class App extends Component {
       }).catch(error => console.log(error));
 
     axios
-      .get("http://localhost:8080/projects")
+      .get(this.baseURL + "projects")
       .then(response => { 
         const newState = Object.assign({}, this.state, {
           projects: response.data
@@ -46,11 +48,13 @@ class App extends Component {
         this.setState(newState);
       }).catch(error => console.log(error));
 
-      axios
-        .get("http://localhost:8080/images")
+    axios
+        .get(this.baseURL + "images")
         .then(response => { 
           document.getElementById('root').style.background = "#D9D6CA url('"+ response.data.path +"') no-repeat center center fixed";
         }).catch(error => console.log(error));
+
+    axios.post(this.baseURL + "logs", { date: new Date(), lang: navigator.language, logType: 1, link: null }).then(response => {}).catch(error => console.log(error));
 
   }
 

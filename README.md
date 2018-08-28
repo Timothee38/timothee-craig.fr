@@ -12,3 +12,5 @@ To build :
   $ npm run build
 `
 
+TODO : 
+ - Create log using api post on app load 

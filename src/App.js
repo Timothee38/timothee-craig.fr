@@ -14,7 +14,7 @@ class App extends Component {
     projects: []
   };
 
-  baseURL = "http://localhost:8080/"
+  baseURL = "https://api.timothee-craig.fr/"
 
   componentDidMount() {
     axios
